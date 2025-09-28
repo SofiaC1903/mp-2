@@ -1,17 +1,16 @@
-export type ThumbnailProps = {
+/*export type ThumbnailProps = {
     lqip: string;
     width: number;
     height: number;
     alt_text: string;
-};
+};*/
 
-export type ArtworkProps = {
+export type AmiiboChar = {
     id: number;
-    title: string;
-    thumbnail: ThumbnailProps;
-    place_of_origin: string;
-    medium_display: string;
-    is_public_domain: boolean;
-    is_on_view: boolean;
-    image_id: string;
+    name: string;
+    image: string;
+    character: string;
+    game_series: string;
+    amiibo_series: string;
+    type: string;
 };
