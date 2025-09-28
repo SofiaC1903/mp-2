@@ -1,31 +1,40 @@
 import styled from 'styled-components';
 import type {AmiiboChar} from "../types";
 
-/*const ArtworkPreviewDiv = styled.div `
-      margin:10px;
-      padding: 4px;
-    width: 400px;
-    background-color: lightblue;
-`;*/
+const AllCharsDiv = styled.div `
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      background-color: #68B893;
+`;
 
-export default function AmiiboCharacters({data}:{data:AmiiboChar}) {
+const SingleCharDiv = styled.div `
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    max-width: 30%;
+    padding: 2%;
+    margin: 1%;
+    color: #65000B;
+    border: 1px solid #65000B;
+    text-align: center;
+    
+    
+`;
+
+export default function AmiiboCharacters(props:{data:AmiiboChar[]}) {
     return(
 
-
-   /* <div>
-        <h2>Artworks</h2>
-        <input
-            type="number"
-            placeholder="Number of artworks"
-            value={numArtworks}
-            min={1}
-            onChange={(e) => setNumArtworks(Number(e.target.value))}/>
-        <p>Number of Artworks: {numArtworks}</p>
-        <div>
-            {artworks.map((a)=> {
-                return <ArtworkPreview artwork={a}/>;
-            })}
-        </div>
-    </div>*/
+        <AllCharsDiv>
+            {
+                props.data.map((char: AmiiboChar) =>
+                    <SingleCharDiv key={char.id} >
+                        <h1>{char.name}</h1>
+                        <h4>{char.character} | {char.game_series}</h4>
+                        <img src={char.image} alt={`character ${char.name} from ${char.game_series}`}/>
+                        <p>{char.amiibo_series} | {char.type}</p>
+                    </SingleCharDiv>)
+            }
+        </AllCharsDiv>
     );
 }

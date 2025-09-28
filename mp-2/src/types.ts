@@ -1,11 +1,4 @@
-/*export type ThumbnailProps = {
-    lqip: string;
-    width: number;
-    height: number;
-    alt_text: string;
-};*/
-
-export type AmiiboChar = {
+export interface AmiiboChar{
     id: number;
     name: string;
     image: string;
