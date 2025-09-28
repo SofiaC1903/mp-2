@@ -17,13 +17,15 @@ function App() {
     useEffect(() => {
         async function getCharacters() {
             const res = await fetch(
-                `https://www.amiiboapi.com/api/?name=${amiibName}`
+                `https://www.amiiboapi.com/api/amiibo/?name=${amiibName}`
             );
             const jsonRes = await res.json();
-            setData(jsonRes.data);
+            setData(jsonRes.amiibo);
         }
 
-        getCharacters().catch((e) => console.error(e));
+        getCharacters()
+            .then(() => console.log("Data fetched succesfully"))
+            .catch((e:Error) => console.log("Error experienced:" + e));
     }, [amiibName]);
 
     return (
@@ -36,12 +38,9 @@ function App() {
                 onChange={(e) => setAmiibName(String(e.target.value))}/>
             <p>Name of Character: {amiibName}</p>
             <AmiiboPreviewDiv>
-                 <AmiiboCharacters data = {data}/>;
+                 <AmiiboCharacters data = {data}/>
             </AmiiboPreviewDiv>
         </div>
-        /*<AmiiboPreviewDiv>
-            <AmiiboCharacters data={data} />
-        </AmiiboPreviewDiv>*/
     );
 }
 

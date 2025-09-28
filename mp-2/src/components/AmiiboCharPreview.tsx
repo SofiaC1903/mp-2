@@ -33,7 +33,8 @@ export default function AmiiboCharacters(props:{data:AmiiboChar[]}) {
                         <h4>{char.character} | {char.game_series}</h4>
                         <img src={char.image} alt={`character ${char.name} from ${char.game_series}`}/>
                         <p>{char.amiibo_series} | {char.type}</p>
-                    </SingleCharDiv>)
+                    </SingleCharDiv>
+                )
             }
         </AllCharsDiv>
     );
