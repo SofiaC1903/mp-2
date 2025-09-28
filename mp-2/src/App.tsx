@@ -1,14 +1,7 @@
 import AmiiboCharacters from "./components/AmiiboCharPreview.tsx"
-import styled from "styled-components";
+import {Title, Input, Wrapper} from "./components/AmiiboCharPreview.tsx"
 import {useEffect, useState} from "react";
 import type {AmiiboChar} from "./types.ts";
-
-const AmiiboPreviewDiv = styled.div`
-    margin: 10px;
-    padding: 4px;
-    width: 400px;
-    background-color: lightblue;
-`;
 
 function App() {
     const [amiibName, setAmiibName] = useState("");
@@ -29,18 +22,18 @@ function App() {
     }, [amiibName]);
 
     return (
-        <div>
-            <h2>Amiibo Character</h2>
-            <input
+        <Wrapper>
+            <Title>Amiibo Character</Title>
+            <Input
                 type="string"
                 placeholder="Character name"
                 value={amiibName}
                 onChange={(e) => setAmiibName(String(e.target.value))}/>
             <p>Name of Character: {amiibName}</p>
-            <AmiiboPreviewDiv>
+            <div>
                  <AmiiboCharacters data = {data}/>
-            </AmiiboPreviewDiv>
-        </div>
+            </div>
+        </Wrapper>
     );
 }
 
