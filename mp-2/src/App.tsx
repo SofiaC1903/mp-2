@@ -1,5 +1,5 @@
 import AmiiboCharacters from "./components/AmiiboCharPreview.tsx"
-import {Title, Input, Wrapper} from "./components/AmiiboCharPreview.tsx"
+import {Title, Input, Wrapper, Subtitle} from "./components/AmiiboCharPreview.tsx"
 import {useEffect, useState} from "react";
 import type {AmiiboChar} from "./types.ts";
 
@@ -23,13 +23,13 @@ function App() {
 
     return (
         <Wrapper>
-            <Title>Amiibo Character</Title>
+            <Title>Amiibo Characters</Title>
             <Input
                 type="string"
-                placeholder="Character name"
+                placeholder="Enter character name"
                 value={amiibName}
                 onChange={(e) => setAmiibName(String(e.target.value))}/>
-            <p>Name of Character: {amiibName}</p>
+            <Subtitle>Name of Character: {amiibName}</Subtitle>
             <div>
                  <AmiiboCharacters data = {data}/>
             </div>
